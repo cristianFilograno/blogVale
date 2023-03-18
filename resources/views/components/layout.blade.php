@@ -8,6 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js']);
 
     <title>Document</title>
+
+    @livewireStyles
 </head>
 <body>
     
@@ -21,6 +23,9 @@
             
     </div>
 
+
+
+    @livewireScripts
 
 </body>
 </html>
