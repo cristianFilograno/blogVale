@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="body" class="form-label">Corpo dell'Articolo:</label>
-            <textarea  class="form-control" id="body" cols="30" rows="10" wire:model.lazy="body">></textarea>
+            <textarea  class="form-control" id="body" cols="30" rows="10" wire:model.lazy="body"></textarea>
 
         </div>
         <div class="mb-3">
@@ -25,6 +25,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Inserisci l'Articolo</button>
+        <a href="{{route('article.index')}}" class="btn btn-outline border-primary text-primary">Torna indietro</a>
+
     </form>
 
 

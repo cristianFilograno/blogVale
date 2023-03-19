@@ -21,9 +21,23 @@
             @foreach ($articles as $article)
             <tr>
               <th scope="row">{{$article->id}}</th>
-              <td>{{$article->title}}</td>
+              <td>
+                @if($article->title)
+                  {{$article->title}}
+                @else
+                //\\
+                @endif
+              </td>
               <td>{{$article->created_at}}</td>
-              <td>{{$article->updated_at}}</td>
+              {{-- NEL BLADE NON SI USANO LE PARENTESI NELLA LOGICA--}}
+              <td>
+              @if($article->updated_at == $article->created_at)
+                //\\
+              @else
+                {{$article->updated_at}}
+              @endif
+              </td>
+              
               <td>
                 <a href="{{route('article.edit', compact('article'))}}" class="btn btn-warning">AGGIORNA</a href="">
                 <button class="btn btn-danger" wire:click="destroy({{$article}})">ELIMINA</button>
