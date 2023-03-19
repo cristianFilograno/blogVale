@@ -11,15 +11,17 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Titolo dell'Articolo:</label>
-            <input type="text" class="form-control" id="title" wire:model='title'>
+            <input type="text" class="form-control" id="title" wire:model.lazy="title">
         </div>
         <div class="mb-3">
             <label for="body" class="form-label">Corpo dell'Articolo:</label>
-            <input type="text" class="form-control" id="body" wire:model='body'>
+            <textarea  class="form-control" id="body" cols="30" rows="10" wire:model.lazy="body">></textarea>
+
         </div>
         <div class="mb-3">
             <label for="cover" class="form-label">Copertina dell'Articolo:</label>
-            <input type="file" class="form-control" id="cover" wire:model='cover'>
+            <input type="file" class="form-control" id="cover" wire:model="cover">
+            
         </div>
 
         <button type="submit" class="btn btn-primary">Inserisci l'Articolo</button>

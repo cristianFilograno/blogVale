@@ -12,7 +12,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view('article.index');
     }
 
     /**
@@ -23,13 +23,9 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  
+    // STORE GESTITA NEL COMPONENTE LIVEWIRE 
+
 
     /**
      * Display the specified resource.
@@ -44,7 +40,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        // VIEW DEL FORM PER AGGIORNARE
+        return view('article.edit', compact('article'));
     }
 
     /**
