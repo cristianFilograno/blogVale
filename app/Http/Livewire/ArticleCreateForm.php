@@ -17,9 +17,10 @@ class ArticleCreateForm extends Component
 
 
     // SEGNAMO LE PROPRIETA'
-    public $title;
-    public $body;
-    public $cover;
+    public $title, $body, $cover;
+    // public $title;
+    // public $body;
+    // public $cover;
 
     // REGOLE DI VALIDAZIONE:(01:35:00 laravel-10)
     // protected $rules = [
@@ -37,7 +38,7 @@ class ArticleCreateForm extends Component
             'title' => $this->title,
             'body' => $this->body,
 
-            // Salvataggio dell'immagine sul disco
+            // Salvataggio dell'immagine sul disco, ricorda lo STORAGE/LINK
             'cover' => $this->cover ? $this->cover->store('public/covers') : null,
             
             // $this->validate([ REGOLE DI VALIDAZIONE A PIACERE
@@ -55,15 +56,18 @@ class ArticleCreateForm extends Component
 
 
         session()->flash('articleCreated', 'Hai pubblicato l\'Articolo');
-        $this->cleanForm();
+
+        // COME CLEANFORM MA PIù VELCOE
+        $this->reset();
+        // $this->cleanForm();
 
     }
-// DOPO L'INSERIMENTO DEI CAMPI 
-    protected function cleanForm(){
-        $this->title = "";
-        $this->body = "";
-        $this->cover = "";
-    }
+// // DOPO L'INSERIMENTO DEI CAMPI 
+//     protected function cleanForm(){
+//         $this->title = "";
+//         $this->body = "";
+//         $this->cover = "";
+//     }
 
     public function render()
     {

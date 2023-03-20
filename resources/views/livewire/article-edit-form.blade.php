@@ -20,23 +20,24 @@
                 <textarea  class="form-control" id="body" cols="30" rows="10" wire:model.lazy='body'></textarea>
     
             </div>
-            <div class="mb-3 text-center">
-                <h5>Foto attuale</h5>
-                {{-- è cosi facile? --}}
-                <div class="row">
-                    <img src="{{ $cover }}" alt="">
-
-                </div>
-
-
+            <div class="mb-3">
+                <label for="old_cover" class="form-label">Immagine attuale:</label>
+                <img width="300px" src="{{ $old_cover }}">
             </div>
+            @if ($cover)
+            <div class="mb-3 text-center">
+                Anteprima Immagine
+                <img width="200px" src="{{ $cover->temporaryUrl() }}">
+            </div>
+             @endif
             <div class="mb-3">
                 <label for="cover" class="form-label">Copertina dell'Articolo:</label>
                 <input type="file" class="form-control" id="cover" wire:model='cover'>
-
+                {{-- TIPO SUBMIT ERA GIà STATO USATO IN QUESTO FORM --}}
+                <button type="button" class="btn small text-danger p-0">Annulla</button>
             </div>
     
-            <button type="submit" class="btn btn-primary">Aggiorna l'Articolo</button>
+            <button type="submit" class="btn btn-primary" wire:click='resetImage'>Aggiorna l'Articolo</button>
         </form>
     
     

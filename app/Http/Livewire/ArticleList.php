@@ -11,6 +11,9 @@ class ArticleList extends Component
 
     public function destroy(Article $article){
 
+        
+        // CONTROLLA SE ELIMINA VERAMENTE
+
         // Elimina la cover del articolo dal disco  SOLO SE C'è(ternario)
         if($article->cover){
             Storage::delete($article->cover);
