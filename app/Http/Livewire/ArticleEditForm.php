@@ -16,7 +16,8 @@ class ArticleEditForm extends Component
     public $article; //PER IL MATCH CON edit-blade
 
     //AGGIORNIAMO LIBRERIA
-    public function update(){
+    public function update()
+    {
         $this->article->update([
             'title' => $this->title,
             'body' => $this->body,
@@ -25,7 +26,7 @@ class ArticleEditForm extends Component
 
         ]);
         // SE L'UTENTE HA CAMBIATO IMMAGINE
-        if($this->cover){
+        if ($this->cover) {
             $this->article->update([
                 'cover' => $this->cover->store('public/covers')
             ]);
@@ -35,19 +36,20 @@ class ArticleEditForm extends Component
             // SOLO SE NON FACCIO IL REDIRECT, CAMBIO L'IMMAGINE ATTUALE
             $this->old_cover = $this->cover->temporaryUrl();
             $this->resetImage();
-            
         }
         // CON QUESTA VISUALIZZAZIONE VEDREMO AGGIORNARSI LA COVER ATTUALE
         session()->flash('articleUpdated', 'Hai aggiornatto correttamente l\'Articolo!');
         // return redirect(route('article.index'))->with('articleUpdated', 'Hai aggiornatto correttamente l\'Articolo!');
     }
 
-    public function resetImage(){
+    public function resetImage()
+    {
         $this->reset('cover');
     }
 
     // QUESTI SONO I VALUE NELL'INPUT ('old')
-    public function mount(){
+    public function mount()
+    {
         $this->title = $this->article->title;
         $this->body = $this->article->body;
         $this->old_cover = Storage::url($this->article->cover);

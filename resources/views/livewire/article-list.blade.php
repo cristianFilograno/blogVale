@@ -28,7 +28,7 @@
                 //\\
                 @endif
               </td>
-              <td>{{$article->created_at}}</td>
+              <td>{{$article->created_at->format('d/m/Y')}}</td>
               {{-- NEL BLADE NON SI USANO LE PARENTESI NELLA LOGICA--}}
               <td>
               @if($article->updated_at == $article->created_at)
